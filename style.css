@@ -238,7 +238,7 @@ h1:first-of-type {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
   gap: 5%;
   padding: 10px;
-  padding-bottom: 40px;
+  padding-bottom: 50px;
 }
 
 .memories-images {
