@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Nuri💕: My Forever Love❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Festive&family=Homemade+Apple&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="main-container">
+        <div id="particles"></div>
+        <div id="introduction">
+            <hr class="decors">
+            <h1>💖💌💕</h1>
+            <h1 id="main-heading"><span class="edit">Happy</span> <span class="edit">Birthday</span> <span class="edit">My</span> <span class="edit">Princess</span></h1>
+
+            <p id="intro-text"><span class="edit">Its your special day my love....This is not</span> <span class="edit"> much like what you deserve but I hope it</span><br> <span class="edit"> does put a smile on your face just like it did to&nbsp;<br></span><span class="edit"> me when making it. Enjoyyy!</span></p>
+            <audio id="audio" controls src="https://raw.githubusercontent.com/asjameel-0213/For-Her/main/assets/Bauchi.m4a"></audio>
+            <div id="captions"></div>
+            <hr class="decors">
+        </div>
+
+        <div id="memories-container">
+            <h1 class="memories-heading">Gallery</h1>
+            <p class="memories-subheading">(P.S Hover Over Them For Secret Messages ;)</p>
+            <div class="image-grid">
+                <div class="card gallery-item" data-delay="0.1s">
+                    <img src="./assets/d6c84d9f-686c-4132-941e-9b0e8223614f.JPG" alt="" class="memories-images">
+                    <div class="overlay-text">You are Special</div>
+                </div>
+                <div class="card gallery-item" data-delay="0.2s">
+                    <img src="./assets/37e81897-c3f4-4772-9c2e-e494bd1ba328.JPG" alt="" class="memories-images">
+                    <div class="overlay-text">You are Loved</div>
+                </div>
+                <div class="card gallery-item" data-delay="0.3s">
+                    <img src="./assets/24d92fb6-a199-4082-ba77-3b2d0b8882a4.JPG" alt="" class="memories-images">
+                    <div class="overlay-text">You are Unique</div>
+                </div>
+                <div class="card gallery-item" data-delay="0.4s">
+                    <img src="./assets/0bcf0852-fa53-4c5e-abbe-30ec4d3e87d4.JPG" alt="" class="memories-images">
+                    <div class="overlay-text">You are Strong</div>
+                </div>
+                <div class="card gallery-item" data-delay="0.5s">
+                    <img src="./assets/066dba66-ebdf-445f-87ed-f9b74d64ba6c.JPG" alt="" class="memories-images">
+                    <div class="overlay-text">You are Pretty</div>
+                </div>
+                <div class="card gallery-item" data-delay="0.6s">
+                    <img src="./assets/IMG_2337.jpg" alt="" class="memories-images">
+                    <div class="overlay-text">And I am Lucky</div>
+                </div>
+            </div>
+        </div>
+        <section class="stats-container" style="padding: 60px 20px;">
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="141">0</span>
+                    Days Together
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="∞">∞</span>
+                    Love %
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100">0</span>
+                    Happiness %
+                </div>
+            </div>
+        </section>
+        <div class="final-container">
+            <div class="box">
+                <img src="./assets/IMG_2777.png" alt="" class="final-image">
+            </div>
+            <div class="final-message box">
+                <h1 class="final-heading">Happy Birthday My Love</h1>
+                <p class="final-text type-effect" data-text="I can't express enough how much you mean to me as well as how much you've impacted my life. I appreciate you for everything you do both the big and small things, even those ones that come as thoughts. You are always on my mind and I look for ways to always make you happy :). Thank you for your love, care, support, understanding and all the irreplaceable memories we've made so far and those yet to come. I hope you're happy today and feel like the luckiest woman alive. I pray for your good health, more wealth and Jannah babe. I love you so much Nuri ❤️.">
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const elements = document.querySelectorAll('.memories-heading, .gallery-item');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show', 'animate');
+                }
+            });
+        });
+
+        elements.forEach(el => observer.observe(el));
+
+        function createParticles() {
+            const particles = document.getElementById('particles');
+            for(let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.innerHTML = ['💕','❤️','💖','💗','💝'][Math.floor(Math.random()*5)];
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                particles.appendChild(particle);
+            }
+        }
+        createParticles();
+        const statsSection = document.querySelector('.stats-container');
+        window.addEventListener('scroll', () => {
+            const rect = statsSection.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0 && !statsSection.dataset.animated) {
+                animateCounters();
+                statsSection.dataset.animated = 'true'; 
+            }
+        });
+
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const increment = target / 100;
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 20);
+            });
+        }
+
+        const audio = document.getElementById("audio");
+        const captions = document.getElementById("captions");
+
+        const lines = [
+          { start: 1.5, end: 3, text: "Hey babe 💖"},
+          { start: 3.2, end: 5, text: "Happy Birthday..🎈"},
+          { start: 6.8, end: 8, text: "I don't even know"},
+          { start: 8.3, end: 11, text: "where I want to even start from."},
+          { start: 11.5, end: 13, text: "Well,"},
+          { start: 13.5, end: 15, text: "we could start from here."},
+          { start: 15.3, end: 17, text: "It's your birthday today"},
+          { start: 17.2, end: 18, text: "like"},
+          { start: 18.3, end: 20, text: "on this very day,"},
+          { start: 20.5, end: 22, text: "My princess was born."},
+          { start: 24, end: 25, text: "(cute giggle :)"},
+          { start: 25.5, end: 27, text: "Since we started dating,"},
+          { start: 27.5, end: 29, text: "I've kinda been thinking"},
+          { start: 29, end: 30, text: "of what I would"},
+          { start: 30, end: 32, text: "get you for your birthday."},
+          { start: 33, end: 35, text: "I wanted something with meaning"},
+          { start: 36, end: 37, text: "and as equally"},
+          { start: 37.2, end: 38.6, text: "had a purpose too,"},
+          { start: 39.8, end: 42, text: "Something that would make you sit down and think"},
+          { start: 42.5, end: 43.7, text: "Oh.."},
+          { start: 43.8, end: 45.7, text: "..he really took his time"},
+          { start: 45.7, end: 47, text: "and thought of me"},
+          { start: 47, end: 48.4, text: "while doing this"},
+          { start: 49, end: 50, text: "and"},
+          { start: 50.4, end: 51, text: "It was kinda hard"},
+          { start: 51.4, end: 52.7, text: "having to find something that would"},
+          { start: 53.7, end: 54.7, text: "give you that."},
+          { start: 55.5, end: 56.3, text: "So I sat down"},
+          { start: 57.5, end: 59, text: "and that was when it clicked"},
+          { start: 59.6, end: 61.4, text: "and then I remembered,"},
+          { start: 61.7, end: 63.5, text: "I was a Dev."},
+          { start: 63.9, end: 65.5, text: "and what do Devs do,"},
+          { start: 66, end: 67, text: "they BUILD,"},
+          { start: 68.3, end: 69.5, text: "and there it came."},
+          { start: 71.4, end: 74.5, text: "What if I build some kind of a birthday website just for"},
+          { start: 74.5, end: 75.8, text: "YOU."},
+          { start: 76, end: 78, text: "I mean"},
+          { start: 78, end: 80.5, text: "is there anything more special to a Dev"},
+          { start: 81, end: 83, text: "other than that,"},
+          { start: 83.5, end: 84, text: "like"},
+          { start: 84, end: 85.5, text: "A whole website,"},
+          { start: 86, end: 87.8, text: "just about YOU."},
+          { start: 89.7, end: 94, text: "I was also trying to highlight the perks of dating a Dev too."},
+          { start: 94.3, end: 96.5, text: "But enough said about that"},
+          { start: 97, end: 99, text: "Lets talk about the real star,"},
+          { start: 100, end: 102, text: "The real star of today,"},
+          { start: 102, end: 105, text: "which is you My Love."},
+          { start: 106.3, end: 109, text: "Words can't seem to express how lucky"},
+          { start: 109.4, end: 111, text: "and grateful I am"},
+          { start: 111.4, end: 113, text: "not to have someone like you,"},
+          { start: 113.8, end: 114.6, text: "but to have"},
+          { start: 114.6, end: 116.2, text: "the one and only YOU"},
+          { start: 116.2, end: 117.4, text: "in my life."},
+          { start: 118.2, end: 119.7, text: "You are so special,"},
+          { start: 120, end: 120.9, text: "unique"},
+          { start: 121.1, end: 123, text: "and different from all other girls"},
+          { start: 123.4, end: 126, text: "I have come across in my life."},
+          { start: 126.7, end: 129, text: "You are the best partner"},
+          { start: 129.4, end: 131, text: "anyone would dream of having"},
+          { start: 132.2, end: 133.7, text: "but their dreams,"},
+          { start: 134.8, end: 136, text: "are my reality."},
+          { start: 138, end: 140, text: "You are so beautiful"},
+          { start: 140.4, end: 142, text: "as well as smart too,"},
+          { start: 142.8, end: 144.4, text: "like really really smart."},
+          { start: 145.5, end: 148, text: "I'm so happy anytime we talk"},
+          { start: 149, end: 152, text: "and even when I have thoughts about you too."},
+          { start: 152.7, end: 154, text: "You mean the world to me"},
+          { start: 155, end: 156.8, text: "and I can not imagine,"},
+          { start: 157, end: 159, text: "a life without you."},
+          { start: 159.8, end: 161.3, text: "You have been so supportive"},
+          { start: 161.6, end: 163, text: "and understanding of me"},
+          { start: 164.2, end: 166.5, text: "in both sickness and in health"},
+          { start: 167, end: 167.6, text: "and"},
+          { start: 167.8, end: 169.4, text: "you have never even for a thought"},
+          { start: 170, end: 171, text: "given up on me."},
+          { start: 172, end: 174, text: "I appreciate you My love"},
+          { start: 175, end: 176.6, text: "and I don't think I will be able"},
+          { start: 178, end: 181, text: "to thank you enough for the way you have impacted my life."},
+          { start: 182.3, end: 184, text: "I cherish all the memories we have,"},
+          { start: 185.6, end: 187.5, text: "the moments too that we have made"},
+          { start: 188.3, end: 190, text: "and also look forward to those,"},
+          { start: 190.3, end: 192, text: "we have yet to make."},
+          { start: 193.3, end: 195, text: "I can't wait to build everything with you,"},
+          { start: 196.2, end: 197, text: "our lives,"},
+          { start: 197.6, end: 198.2, text: "our careers,"},
+          { start: 199.2, end: 201, text: "and the future in general."},
+          { start: 202, end: 203.5, text: "Thank you for believing in me"},
+          { start: 204, end: 206, text: "and sticking by my side."},
+          { start: 207, end: 207.4 , text: "Now,"},
+          { start: 208.2, end: 209, text: "even though"},
+          { start: 210.6, end: 212, text: "you always try to stress me out"},
+          { start: 213, end: 215.7, text: "or just look for ways to make me mad,"},
+          { start: 216.5, end: 218.3, text: "I still love you very very much"},
+          { start: 219.5, end: 221.3, text: "and will continue to do so,"},
+          { start: 222, end: 223, text: "until my last breath"},
+          { start: 223.2, end: 224.7, text: "by Allah's will."},
+          { start: 225.4, end: 228.8, text: "I hope you know that I truly mean every single thing that I say to you"},
+          { start: 229.5, end: 232, text: "and all this is coming straight from my heart."},
+          { start: 234, end: 237, text: "I look forward to spending the rest of my life with you."},
+          { start: 238.3, end: 240, text: "I love you so much Nuri."},
+          { start: 241, end: 243.5, text: "Talk to you in a couple of hours. 💗"},
+        ];
+
+        let currentLineIndex = -1;
+
+        audio.addEventListener("timeupdate", () => {
+            const current = audio.currentTime;
+            const index = lines.findIndex(l => current >= l.start && current <= l.end);
+          
+            if (index !== currentLineIndex) {
+                currentLineIndex = index;
+                
+                if (index === -1) {
+                    captions.classList.add("fade-out");
+                    return;
+                }
+
+                captions.classList.remove("fade-out");
+
+                const words = lines[index].text.split(" ");
+                captions.innerHTML = "";
+
+                words.forEach((word, i) => {
+                    const span = document.createElement("span");
+                    span.textContent = word + " ";
+                    span.classList.add("word");
+                    span.style.animationDelay = `${i * 0.2}s`;
+
+                    captions.appendChild(span);
+                })
+            }
+        })
+
+        function typeWriter(element, text, speed = 40) {
+            element.innerHTML = '';
+            let i = 0;
+    
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    element.classList.remove('typing');
+                }
+            }
+    
+            element.classList.add('typing');
+            type();
+        }
+
+        const finalSection = document.querySelector('.final-container');
+        const typeElement = document.querySelector('.type-effect');
+
+        const finalObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !typeElement.dataset.typed) {
+                    const text = typeElement.getAttribute('data-text');
+                    typeWriter(typeElement, text);
+                    typeElement.dataset.typed = 'true';
+                }
+            });
+        }, { threshold: 0.3 });
+
+        finalObserver.observe(finalSection);
+    </script>
+</body>
+</html>
