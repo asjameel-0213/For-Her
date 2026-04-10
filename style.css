@@ -394,6 +394,7 @@ h1:first-of-type {
   #introduction, #memories-container {
     margin: 20px;
     margin-top: 50px;
+    margin-bottom: 40px;
   }
   
   #intro-text {
